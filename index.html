@@ -1,12 +1,54 @@
 <!DOCTYPE html>
-<html lang="es"
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>pagina</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Registro de Recetas</title>
+    <style>
+        body { font-family: sans-serif; max-width: 500px; margin: 40px auto; padding: 20px; }
+        input, textarea { width: 100%; margin-bottom: 15px; padding: 8px; box-sizing: border-box; }
+        button { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+    </style>
 </head>
 <body>
-    <h1>hola mundo</h1>
+    <h2>Nueva Receta</h2>
+    <form id="recipeForm">
+        <label>Nombre de la Receta:</label>
+        <input type="text" id="nombre" required>
+        
+        <label>Ingredientes:</label>
+        <textarea id="ingredientes" rows="4" required></textarea>
+        
+        <label>Paso a Paso:</label>
+        <textarea id="pasos" rows="6" required></textarea>
+        
+        <button type="submit">Guardar Receta</button>
+    </form>
+
+    <script>
+        document.getElementById('recipeForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const data = {
+                nombre: document.getElementById('nombre').value,
+                ingredientes: document.getElementById('ingredientes').value,
+                pasos: document.getElementById('pasos').value
+            };
+
+            // Reemplaza con la URL de tu Webhook de n8n
+            const WEBHOOK_URL = 'TU_URL_WEBHOOK_DE_N8N';
+
+            try {
+                const response = await fetch(WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                if (response.ok) alert('¡Receta enviada con éxito!');
+            } catch (error) {
+                alert('Error al enviar la receta');
+            }
+        });
+    </script>
 </body>
 </html>
   

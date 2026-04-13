@@ -1,20 +1,23 @@
 3.1 Público Objetivo (User Profile)
+Proyecto: Diario interactivo de colección y reseñas sobre el universo de Studio Ghibli.
 
-Proyecto: Sitio web de recetas de cocina rápida (5 minutos).
 Rango etario: 18 a 30 años (estudiantes y jóvenes profesionales).
-Nacionalidad: Argentina.
-Ubicación geográfica: Centros urbanos con poco tiempo para cocinar.
-Variables adicionales: Uso principal desde dispositivos móviles en la cocina, nivel de alfabetización digital alto, idioma español.
 
----
+Nacionalidad: Argentina.
+
+Ubicación geográfica: Cualquier lugar.
+
+Variables adicionales: Uso principal desde dispositivos móviles en momentos de ocio, nivel de alfabetización digital alto, idioma español.
 
 3.2 Design Inspirations & Creative Process (In English)
-
 Design Inspirations
-Tastemade: Used as a reference for clean, high-contrast food photography that guides the user's eye.
-Material Design: I followed Google’s "Floating Action Button" (FAB) pattern to allow users to quickly "Save" a recipe while scrolling.
+Studio Ghibli Aesthetics: Used as a reference for a "cozy" and organic visual style, utilizing soft color palettes (greens, creams, and sky blues) to evoke nostalgia.
+
+Glassmorphism: I followed a translucent UI pattern to create a "Digital Dream Journal" feel, allowing the background textures to blend with the form elements.
 
 Creative Process Documentation
-Concept: I chose a Mobile-First approach because the user will likely be holding a phone with one hand while cooking.
-Decisions: I discarded complex drop-down menus (typical of Desktop UI) and replaced them with large, thumb-friendly buttons to improve efficiency and avoid errors.
-Accessibility: Following WCAG standards, I ensured high color contrast so the text is readable even under bright kitchen lights.
+Concept: I chose a Mobile-First approach to ensure the diary remains accessible for quick entries during daily breaks or while watching a movie.
+
+Decisions: I integrated the Studio Ghibli API to replace manual movie entry with a dynamic drop-down menu, improving data accuracy and reducing user effort.
+
+Accessibility: Following WCAG standards, I ensured high color contrast and used the Lora serif font to maintain high readability even on textured backgrounds.

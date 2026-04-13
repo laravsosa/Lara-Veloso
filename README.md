@@ -1,7 +1,7 @@
 3.1 Público Objetivo (User Profile)
 Proyecto: Diario interactivo de colección y reseñas sobre el universo de Studio Ghibli.
 
-Rango etario: 18 a 30 años (estudiantes y jóvenes profesionales).
+Rango etario: 18 a 30 años (estudiantes y entusiastas de studio ghibli).
 
 Nacionalidad: Argentina.
 

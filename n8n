@@ -1,0 +1,201 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "studio-ghibli-films",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -32,
+        0
+      ],
+      "id": "ba2a3d42-7d15-483d-b394-0e03771d9b00",
+      "name": "Webhook",
+      "webhookId": "4ca84008-42a5-4dae-bed8-87688b793c3f",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/12ZNv_ydU_WBOlKd5fwqqU_qKV3k2l3DBO2s1XvOK06s/edit?gid=532979653#gid=532979653",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 532979653,
+          "mode": "list",
+          "cachedResultName": "Hoja 2",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/12ZNv_ydU_WBOlKd5fwqqU_qKV3k2l3DBO2s1XvOK06s/edit#gid=532979653"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "calificacion": "={{ JSON.parse($json.body).calificacion }}",
+            "escena_favorita": "={{ JSON.parse($json.body).escena_favorita }} ",
+            "nombre_pelicula": "={{ JSON.parse($json.body).nombre_pelicula }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "nombre_pelicula",
+              "displayName": "nombre_pelicula",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "escena_favorita",
+              "displayName": "escena_favorita",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "calificacion",
+              "displayName": "calificacion",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Columna 4",
+              "displayName": "Columna 4",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Columna 5",
+              "displayName": "Columna 5",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Columna 6",
+              "displayName": "Columna 6",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        144,
+        0
+      ],
+      "id": "07a472ba-2b1f-4d57-b74b-8c548c6517c4",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "B47OB3QfvQ2IaWnp",
+          "name": "Google Sheets OAuth2 API"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "operation": "currentlyPlaying"
+      },
+      "type": "n8n-nodes-base.spotify",
+      "typeVersion": 1,
+      "position": [
+        320,
+        0
+      ],
+      "id": "87d7b592-1b4f-486c-9404-fd1dc140c214",
+      "name": "Get the currently playing track",
+      "credentials": {
+        "spotifyOAuth2Api": {
+          "id": "Yb27YxbwxZurd4RJ",
+          "name": "Spotify account"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Append row in sheet": [
+      {
+        "json": {
+          "calificacion": "4",
+          "escena_favorita": "f ",
+          "nombre_pelicula": "Pom Poko"
+        }
+      }
+    ]
+  },
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Get the currently playing track",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get the currently playing track": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "3a67075a-a779-49a7-9ac5-d08ddfc53e36",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "9993cab4fe9c35d978c24885bff2fc6079e9850c4558144ea0617b95cdbec64b"
+  },
+  "id": "zN0UO2fadcnytP8x",
+  "tags": []
+}

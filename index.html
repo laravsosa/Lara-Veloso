@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Registro de peliculas</title>
-    <style>
-        body { font-family: sans-serif; max-width: 500px; margin: 40px auto; padding: 20px; }
-        input, textarea { width: 100%; margin-bottom: 15px; padding: 8px; box-sizing: border-box; }
-        button { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -28,10 +25,8 @@
         </form>
         <p class="footer-note">"Nada de lo que sucede se olvida jamás, aunque no lo recuerdes".</p>
     </div>
-    <div style="margin-top: 20px; display: flex; justify-content: center;">
-        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1MX0g22bQkr9HDVe37fLnN?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
-            
-        </iframe>
+    <div class="spotify-wrapper">
+        <iframe data-testid="embed-iframe" src="https://open.spotify.com/embed/track/1MX0g22bQkr9HDVe37fLnN?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
 
     <script>
